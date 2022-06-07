@@ -16,8 +16,9 @@
  * Adds a random greeting to the page.
  */
 function addRandomGreeting() {
+    // "greetings"
   const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+      ['I have 2600 hours on Team Fortress 2 for some godforsaken reason', 'valgrind is the root of all suffering', 'Here\'s an unfunny message', 'garlic design is my passion', 'You should play Celeste'];
 
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
