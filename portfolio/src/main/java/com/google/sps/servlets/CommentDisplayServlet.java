@@ -28,14 +28,20 @@ public class CommentDisplayServlet extends HttpServlet {
 		QueryResults<Entity> results = datastore.run(query);
 
 		// Feed datastore query into some garbage json... idk what i'm doing LOL
-		Map<String, String> commentList = new TreeMap<>();
+		ArrayList<Map<String, String>> commentList = new ArrayList<>();
 		while (results.hasNext()) {
 			Entity entity = results.next();
 			
 			//long id = entity.getKey().getId();
 			String comment = entity.getString("comment");
 			String name = entity.getString("name");
-			commentList.put(name, comment);
+
+            // Thank you Katherine Yu for saving my life jesus christ
+			commentList.add(Map.of(
+                "name", name,
+                "comment", comment
+            ));
+
 		}
 
 		// Convert to gson???

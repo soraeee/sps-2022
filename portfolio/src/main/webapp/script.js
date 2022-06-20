@@ -43,23 +43,25 @@ async function showConfirmation() {
 function loadComments() {
     fetch('/comment-display').then(response => response.json()).then((commentList) => {
         const commentListElement = document.getElementById('comment-list');
+        console.log(commentList);
         commentList.forEach((comment) => {
+            commentListElement.appendChild(createNameElement(comment));
             commentListElement.appendChild(createCommentElement(comment));
         })
     });
 }
 
 // Creates the elements to be added to the portfolio page
-function createCommentElement(comment) {
-    const commentElement = document.createElement('li');
-    commentElement.className = 'comment';
+// they're seperate because html and js is funky! and also because i want to return 2 seperate objects
+function createNameElement(comment) {
+    const nameElement = document.createElement('h3');
+    nameElement.innerText = comment.name;
 
-    const nameElement = document.createElement('span');
-    commentElement.innerText = comment.name;
-    const messageElement = document.createElement('span');
+    return nameElement;
+}
+function createCommentElement(comment) {
+    const commentElement = document.createElement('p');
     commentElement.innerText = comment.comment;
 
-    commentElement.appendChild(nameElement);
-    commentElement.appendChild(messageElement);
     return commentElement;
 }
