@@ -54,12 +54,12 @@ function createCommentElement(comment) {
     const commentElement = document.createElement('li');
     commentElement.className = 'comment';
 
-    /*const nameElement = document.createElement('span');
+    const nameElement = document.createElement('span');
     commentElement.innerText = comment.name;
     const messageElement = document.createElement('span');
     commentElement.innerText = comment.comment;
 
     commentElement.appendChild(nameElement);
-    commentElement.appendChild(messageElement);*/
+    commentElement.appendChild(messageElement);
     return commentElement;
 }

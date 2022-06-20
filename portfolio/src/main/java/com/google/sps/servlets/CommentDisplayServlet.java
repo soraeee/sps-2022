@@ -10,6 +10,8 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,21 +24,18 @@ public class CommentDisplayServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-		Query<Entity> query = Query.newEntityQueryBuilder().setKind("Message").build();
+		Query<Entity> query = Query.newEntityQueryBuilder().setKind("Message").setOrderBy(OrderBy.desc("name")).build();
 		QueryResults<Entity> results = datastore.run(query);
 
 		// Feed datastore query into some garbage json... idk what i'm doing LOL
-		ArrayList<String> commentList = new ArrayList<>();
+		Map<String, String> commentList = new TreeMap<>();
 		while (results.hasNext()) {
 			Entity entity = results.next();
 			
-			long id = entity.getKey().getId();
-			String name = entity.getString("name");
+			//long id = entity.getKey().getId();
 			String comment = entity.getString("comment");
-			System.out.println("################## " + comment);
-
-			String jsonString = "{\"id\":" + id + ", \"name\":\"" + name + "\", \"comment\":\"" + comment + "\"}";
-			commentList.add(jsonString);
+			String name = entity.getString("name");
+			commentList.put(name, comment);
 		}
 
 		// Convert to gson???
