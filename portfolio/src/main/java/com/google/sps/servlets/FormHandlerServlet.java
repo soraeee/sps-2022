@@ -14,8 +14,7 @@ public class FormHandlerServlet extends HttpServlet {
     // Get value from radio selection in form
     // False (mean) if nothing is selected
     String commentType = request.getParameter("commentType");
-    boolean isNice = false;
-    if (commentType.equals("nice")) isNice = true;
+    boolean isNice = commentType.equals("nice");
 
     // Get the value entered in the form.
     String textValue = request.getParameter("text-input");
