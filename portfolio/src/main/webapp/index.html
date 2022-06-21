@@ -1,35 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-  </head>
-  <body>
+</head>
+
+<body onload="loadComments()">
     <div id="content">
-      <h1>Andrew's Portfolio</h1>
-      <p>I make rhythm game content (and code sometimes, I guess).</p>
-      <p>I'm currently a junior studying Computer Science at the University of Georgia.</p>
-      <p>I'm excited for the rest of Google SPS!</p>
-      <h1>projects???</h1>
-      <h3>NotITG charts</h3>
-      <p>Playable rhythm game audiovisual experiences coded using Lua.</p>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/SDszbM3UjIM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/gVWZfvmra54" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/x-ot5cQAbss" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <h1>woo! links!</h1>
-      <h3><a href="https://www.youtube.com/c/soraeitg">YouTube</a></h3>
-      <p>Contains the rest of my rhythm game content.</p>
-      <h3><a href="https://github.com/soraeee">GitHub</a></h3>
-      <p>this doesn't have anything meaningful because most of the stuff I'm working on is currently in private repos</p>
-      <img src="/images/cat.gif" />
-      <h1>this stuff was here already</h1>
-      <h3>i don't know what to do with it right now</h3>
-git       <p>Click <a href="/hello">here</a> to see content created by server code.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+        <h1>Andrew's Portfolio</h1>
+        <p>I make rhythm game content (and code sometimes, I guess).</p>
+        <p>I'm currently a junior studying Computer Science at the University of Georgia.</p>
+        <p>I'm excited for the rest of Google SPS!</p>
+        <h1>projects???</h1>
+        <h3>NotITG charts</h3>
+        <p>Playable rhythm game audiovisual experiences coded using Lua.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/SDszbM3UjIM" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/gVWZfvmra54" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/x-ot5cQAbss" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <h1>woo! links!</h1>
+        <h3><a href="https://www.youtube.com/c/soraeitg">YouTube</a></h3>
+        <p>Contains the rest of my rhythm game content.</p>
+        <h3><a href="https://github.com/soraeee">GitHub</a></h3>
+        <p>this doesn't have anything meaningful because most of the stuff I'm working on is currently in private repos
+        </p>
+        <form action="/form-handler" method="POST">
+            <h1>hey you should leave a comment on my portfolio</h1>
+            <textarea name="name-input" placeholder="what's your name?"></textarea>
+            <textarea name="text-input" placeholder="(this is where you put words)"></textarea>
+            <br />
+            <input type="radio" id="nice" name="commentType" value="nice" checked>
+            <label for="nice">this is a nice comment</label><br>
+            <input type="radio" id="mean" name="commentType" value="mean">
+            <label for="mean">this is a mean comment</label><br>
+            <input type="submit" onclick="showConfirmation();" />
+        </form>
+        <p id="confirmContainer"></p>
+
+        <h2>Wow! cool comments</h2>
+        <ul id="comment-list"></ul>
+
+        <br>
+        <img src="/images/cat.gif" />
+        <h1>this stuff was here already</h1>
+        <h3>i don't know what to do with it right now</h3>
+        <p>Click <a href="/hello">here</a> to see content created by server code.</p>
+        <p>Click here to get a random message:</p>
+        <button onclick="addRandomGreeting()">Hello</button>
+        <div id="greeting-container"></div>
     </div>
-  </body>
+</body>
+
 </html>
